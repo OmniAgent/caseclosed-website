@@ -1,0 +1,182 @@
+# Netlify Configuration for CaseClosed Website
+# Revolutionary legal technology platform deployment
+
+[build]
+  # Build command - use npm script instead of direct next command
+  command = "npm run build"
+  
+  # Publish directory - Next.js static export output
+  publish = ".next"
+  
+  # Install command - ensure dependencies are installed
+  install = "npm install"
+  
+  # Environment variables for build
+  [build.environment]
+    NODE_ENV = "production"
+    NEXT_TELEMETRY_DISABLED = "1"
+    NEXT_PRIVATE_TARGET = "server"
+
+# Development branch settings
+[context.deploy-preview]
+  command = "npm run build"
+  publish = ".next"
+
+[context.branch-deploy]
+  command = "npm run build"
+  publish = ".next"
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security headers for legal compliance
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Christopher AI and Nevada compliance headers
+    X-Legal-Compliance = "Nevada State Bar Compliant"
+    X-Attorney-Client-Privilege = "Protected"
+    X-Christopher-AI = "8 Cultural Avatars"
+    
+    # Performance headers
+    X-DNS-Prefetch-Control = "on"
+    
+    # Cache control for static assets
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Static asset headers
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/avatars/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/icons/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# API routes headers
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Cache-Control = "no-store, must-revalidate"
+    X-Legal-API = "Attorney-Client Privilege Protected"
+
+# Redirects for SEO and user experience
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/attorney-dashboard"
+  to = "/dashboard"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/christopher"
+  to = "/christopher-ai"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/nevada"
+  to = "/nevada-advantage"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/case-closed"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/caseclosed"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/terms"
+  to = "/legal/terms-of-service"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy"
+  to = "/legal/privacy-policy"
+  status = 301
+  force = true
+
+# SPA fallback for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Edge functions for Christopher AI (future)
+# [[edge_functions]]
+#   function = "christopher-ai"
+#   path = "/api/christopher/*"
+
+# Plugin configuration
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Build hooks for CI/CD
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
+# Functions configuration (for future API endpoints)
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Forms configuration (for contact/demo forms)
+[forms]
+  # Enable form handling
+  enabled = true
+  
+  # Spam protection
+  spam_protection = true
+  
+  # Notifications
+  [forms.notifications]
+    # Email notifications for demo requests
+    email = "demo@caseclosed.com"
+    
+    # Slack notifications for new attorney signups
+    slack = "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK"
+
+# Development server configuration
+[dev]
+  command = "npm run dev"
+  port = 3000
+  targetPort = 3000
+  publish = "src"
+  autoLaunch = false
