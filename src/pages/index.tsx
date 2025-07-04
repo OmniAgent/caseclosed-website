@@ -222,10 +222,10 @@ export default function Home() {
           </div>
           
           <nav style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
-            {/* Features Dropdown */}
+            {/* Revenue Calculator Dropdown */}
             <div style={{ position: 'relative' }}>
               <button 
-                onClick={() => setDropdownOpen(dropdownOpen === 'features' ? null : 'features')}
+                onClick={() => setDropdownOpen(dropdownOpen === 'revenue' ? null : 'revenue')}
                 style={{ 
                   color: 'rgba(255,255,255,0.9)', 
                   background: 'none',
@@ -238,9 +238,9 @@ export default function Home() {
                   gap: '0.5rem'
                 }}
               >
-                Features ▼
+                Revenue Calculator ▼
               </button>
-              {dropdownOpen === 'features' && (
+              {dropdownOpen === 'revenue' && (
                 <div style={{
                   position: 'absolute',
                   top: '100%',
@@ -253,10 +253,10 @@ export default function Home() {
                   minWidth: '200px',
                   zIndex: 1000
                 }}>
-                  <a href="#ai-avatars" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>AI Avatars</a>
-                  <a href="#multi-language" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Multi-Language</a>
-                  <a href="#video-messaging" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Video Messaging</a>
-                  <a href="#case-management" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Case Management</a>
+                  <a href="#lost-revenue" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Calculate Lost Revenue</a>
+                  <a href="#roi-projections" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>ROI Projections</a>
+                  <a href="#attorney-broker-income" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Attorney-Broker Income</a>
+                  <a href="#case-studies" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Success Stories</a>
                 </div>
               )}
             </div>
@@ -300,7 +300,7 @@ export default function Home() {
               )}
             </div>
 
-            {/* Nevada Advantage Dropdown */}
+            {/* Nevada NRS 7.107 Dropdown */}
             <div style={{ position: 'relative' }}>
               <button 
                 onClick={() => setDropdownOpen(dropdownOpen === 'nevada' ? null : 'nevada')}
@@ -316,7 +316,7 @@ export default function Home() {
                   gap: '0.5rem'
                 }}
               >
-                Nevada Advantage ▼
+                Nevada NRS 7.107 ▼
               </button>
               {dropdownOpen === 'nevada' && (
                 <div style={{
@@ -331,10 +331,10 @@ export default function Home() {
                   minWidth: '200px',
                   zIndex: 1000
                 }}>
-                  <a href="#attorney-broker" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Attorney-Broker License</a>
-                  <a href="#multicultural-market" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Multicultural Market</a>
-                  <a href="#competitive-edge" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Competitive Edge</a>
-                  <a href="#compliance" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Nevada Compliance</a>
+                  <a href="#attorney-broker-law" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Attorney-Broker Law</a>
+                  <a href="#revenue-opportunity" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Revenue Opportunity</a>
+                  <a href="#competitive-advantage" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Competitive Advantage</a>
+                  <a href="#compliance-guide" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Compliance Guide</a>
                 </div>
               )}
             </div>
@@ -376,7 +376,7 @@ export default function Home() {
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text'
           }}>
-            Revolutionary Legal Technology
+            Nevada Attorneys: Stop Losing $100K+ Annual Revenue
           </h2>
           <p style={{ 
             fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', 
@@ -387,8 +387,7 @@ export default function Home() {
             marginRight: 'auto',
             lineHeight: '1.4'
           }}>
-            Transform your Nevada legal practice with Christopher AI's 8 cultural avatars, 
-            attorney-broker advantage, and multi-language intelligence.
+            You didn't go to law school to sell houses - but Nevada NRS 7.107 lets you capture real estate commissions WITHOUT becoming a real estate expert. Christopher AI handles the complexity while you provide legal oversight.
           </p>
           
           <div style={{ 
@@ -410,7 +409,7 @@ export default function Home() {
               transition: 'transform 0.2s, box-shadow 0.2s',
               boxShadow: '0 8px 32px rgba(203, 150, 40, 0.3)'
             }}>
-              Start Free Trial
+              Calculate Your Lost Revenue
             </button>
             <button style={{ 
               background: 'rgba(255, 255, 255, 0.1)',
@@ -424,7 +423,7 @@ export default function Home() {
               transition: 'background 0.2s, border-color 0.2s',
               backdropFilter: 'blur(10px)'
             }}>
-              Watch Demo
+              Watch Christopher Demo
             </button>
           </div>
         </div>
@@ -440,7 +439,7 @@ export default function Home() {
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text'
           }}>
-            Meet Christopher AI - 8 Cultural Avatars
+            Christopher AI: Your Real Estate Expert (So You Don't Have To Be)
           </h3>
           
           <div style={{ 
@@ -527,7 +526,7 @@ export default function Home() {
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text'
           }}>
-            Nevada Attorney-Broker Advantage
+            Nevada NRS 7.107: Your Unfair Advantage
           </h3>
           <div style={{ 
             display: 'grid', 
@@ -537,29 +536,29 @@ export default function Home() {
           }}>
             <div>
               <h4 style={{ fontSize: '1.3rem', fontWeight: '600', margin: '0 0 1rem 0', color: '#cb9628' }}>
-                🏠 Real Estate Law
+                💰 Attorney-Broker Revenue
               </h4>
               <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5' }}>
-                Dual attorney-broker licensing allows you to represent clients in both legal and real estate transactions, 
-                maximizing revenue per case.
+                Nevada NRS 7.107 allows attorneys to earn real estate commissions without separate broker licensing. 
+                Stop referring $50K-200K+ annual revenue to agents - capture it yourself with legal oversight.
               </p>
             </div>
             <div>
               <h4 style={{ fontSize: '1.3rem', fontWeight: '600', margin: '0 0 1rem 0', color: '#cb9628' }}>
-                🌍 Multi-Cultural Market
+                🤖 AI Handles Complexity
               </h4>
               <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5' }}>
-                Nevada's diverse population needs Christopher AI's cultural intelligence to serve Spanish, Arabic, 
-                Chinese, and other language communities effectively.
+                Christopher AI manages all real estate transaction complexity - inspections, title coordination, 
+                client communication - while you provide legal expertise and protection.
               </p>
             </div>
             <div>
               <h4 style={{ fontSize: '1.3rem', fontWeight: '600', margin: '0 0 1rem 0', color: '#cb9628' }}>
-                💼 Business Growth
+                🏆 Competitive Moat
               </h4>
               <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5' }}>
-                Unique positioning in Nevada's competitive market with AI-powered client communication 
-                and cultural sensitivity gives you a decisive advantage.
+                Nevada's unique regulatory advantage cannot be replicated in other states. 
+                Position yourself as the attorney who provides legal protection AND real estate expertise.
               </p>
             </div>
           </div>
