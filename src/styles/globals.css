@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CaseClosed Brand Colors */
+:root {
+  --caseclosed-navy: #032440;
+  --caseclosed-gold: #cb9628;
+  --christopher-primary: #cb9628;
+  --nevada-blue: #003f7f;
+}
+
+/* Base styles */
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  color: #1f2937;
+  background-color: #ffffff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Christopher AI Avatar Styles */
+.christopher-avatar {
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(203, 150, 40, 0.15);
+}
+
+.christopher-avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(203, 150, 40, 0.25);
+}
+
+/* Nevada Gold Accent */
+.nevada-gold {
+  color: var(--caseclosed-gold);
+}
+
+/* Professional Navy */
+.professional-navy {
+  color: var(--caseclosed-navy);
+}
+
+/* Loading Animation */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Christopher AI Glow Effect */
+.christopher-glow {
+  animation: christopher-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes christopher-glow {
+  0% { box-shadow: 0 0 0 0 rgba(203, 150, 40, 0.4); }
+  100% { box-shadow: 0 0 0 10px rgba(203, 150, 40, 0); }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus states for accessibility */
+*:focus {
+  outline: 2px solid var(--caseclosed-gold);
+  outline-offset: 2px;
+}
+
+/* Button hover effects */
+.btn-primary {
+  background-color: var(--caseclosed-navy);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(3, 36, 64, 0.3);
+}
+
+.btn-secondary {
+  background-color: var(--caseclosed-gold);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(203, 150, 40, 0.3);
+}
