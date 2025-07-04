@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null)
 
   // Christopher avatars data with real info
