@@ -9,7 +9,7 @@ export default function Home() {
     {
       id: 1,
       name: "Christopher Classic",
-      image: "/avatars/christopher-classic.jpg", // Will be the first image you showed
+      image: "/avatars/christopher-classic.png", // Your real Caucasian male photo
       appearance: "Caucasian, late 30s, friendly everyman",
       specialization: "General practice, suburban/rural markets",
       personality: "Warm, neighborly, guy-next-door relatability"
@@ -17,7 +17,7 @@ export default function Home() {
     {
       id: 2,
       name: "Christopher Professional", 
-      image: "/avatars/christopher-professional.jpg", // Will be the second image you showed
+      image: "/avatars/christopher-professional.png", // Your real African American male photo
       appearance: "African American, early 40s, polished professional",
       specialization: "Urban practices, corporate clients",
       personality: "Authoritative but approachable"
@@ -25,7 +25,7 @@ export default function Home() {
     {
       id: 3,
       name: "Christopher Bilingual",
-      image: "/avatars/christopher-bilingual.jpg", // Will be the third image you showed
+      image: "/avatars/christopher-bilingual.png", // Your real Hispanic/Latino male photo
       appearance: "Hispanic/Latino, mid-30s, family-focused",
       specialization: "Spanish-speaking clients, family law",
       personality: "Culturally sensitive, community-oriented"
@@ -33,7 +33,7 @@ export default function Home() {
     {
       id: 4,
       name: "Christopher Tech-Forward",
-      image: "/avatars/christopher-tech-forward.jpg", // Placeholder for now
+      image: "/avatars/christopher-classic.png", // Using Classic as placeholder for now
       appearance: "Asian American, early 30s, modern professional",
       specialization: "Tech industry clients, younger demographics",
       personality: "Efficient, detail-oriented, innovation-focused"
@@ -41,7 +41,7 @@ export default function Home() {
     {
       id: 5,
       name: "Christopher Experienced",
-      image: "/avatars/christopher-experienced.jpg", // Placeholder for now
+      image: "/avatars/christopher-professional.png", // Using Professional as placeholder for now
       appearance: "Caucasian, early 50s, distinguished professional",
       specialization: "High-net-worth clients, luxury real estate",
       personality: "Wisdom-focused, trustworthy"
@@ -49,7 +49,7 @@ export default function Home() {
     {
       id: 6,
       name: "Christopher Approachable",
-      image: "/avatars/christopher-approachable.jpg", // Placeholder for now
+      image: "/avatars/christopher-bilingual.png", // Using Bilingual as placeholder for now
       appearance: "Mixed/Multiracial, late 20s, energetic",
       specialization: "First-time buyers, millennials",
       personality: "Contemporary, peer-to-peer relatability"
@@ -57,7 +57,7 @@ export default function Home() {
     {
       id: 7,
       name: "Christopher International",
-      image: "/avatars/christopher-international.jpg", // Placeholder for now
+      image: "/avatars/christopher-classic.png", // Using Classic as placeholder for now
       appearance: "Middle Eastern/South Asian, mid-30s",
       specialization: "International clients, investment properties",
       personality: "Culturally sophisticated, diplomatic"
@@ -65,7 +65,7 @@ export default function Home() {
     {
       id: 8,
       name: "Christopher Community",
-      image: "/avatars/christopher-community.jpg", // Placeholder for now
+      image: "/avatars/christopher-professional.png", // Using Professional as placeholder for now
       appearance: "Native American, late 30s, community-focused",
       specialization: "Community-based transactions, cultural sensitivity",
       personality: "Respectful, traditional values with modern expertise"
