@@ -2,8 +2,8 @@
 # Revolutionary legal technology platform deployment
 
 [build]
-  # Build command - use npm script instead of direct next command
-  command = "npm run build"
+  # Build command - use npm script with legacy peer deps for compatibility
+  command = "npm install --legacy-peer-deps && npm run build"
   
   # Publish directory - Next.js static export output
   publish = ".next"
