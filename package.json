@@ -87,9 +87,6 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-avatar": "^1.0.4",
-    "@radix-ui/react-badge": "^1.0.0",
-    "@radix-ui/react-button": "^1.0.0",
-    "@radix-ui/react-card": "^1.0.0",
     
     "embla-carousel-react": "^8.0.0-rc12",
     "react-intersection-observer": "^9.5.3",
@@ -107,10 +104,9 @@
     "crypto-js": "^4.2.0",
     
     "react-countup": "^6.5.0",
-    "react-typed": "^1.2.0",
+    "typed.js": "^2.1.0",
     
-    "swiper": "^11.0.5",
-    "keen-slider": "^6.8.6"
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
@@ -173,7 +169,6 @@
     
     "@types/js-cookie": "^3.0.6",
     "@types/crypto-js": "^4.2.1",
-    "@types/react-typed": "^1.2.2",
     
     "webpack-bundle-analyzer": "^4.10.1",
     "source-map-explorer": "^2.5.3"
