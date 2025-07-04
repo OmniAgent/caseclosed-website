@@ -449,7 +449,7 @@ export default function Home() {
             gap: '2rem',
             marginBottom: '3rem'
           }}>
-            {christopherAvatars.map((avatar, index) => (
+            {christopherAvatars.map((avatar) => (
               <div key={avatar.id} style={{
                 background: 'rgba(255, 255, 255, 0.1)',
                 backdropFilter: 'blur(20px)',
