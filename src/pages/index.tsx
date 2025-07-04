@@ -1,13 +1,187 @@
+import { useState, useEffect } from 'react'
+
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null)
+
+  // Christopher avatars data with real info
+  const christopherAvatars = [
+    {
+      id: 1,
+      name: "Christopher Classic",
+      image: "/avatars/christopher-classic.jpg", // Will be the first image you showed
+      appearance: "Caucasian, late 30s, friendly everyman",
+      specialization: "General practice, suburban/rural markets",
+      personality: "Warm, neighborly, guy-next-door relatability"
+    },
+    {
+      id: 2,
+      name: "Christopher Professional", 
+      image: "/avatars/christopher-professional.jpg", // Will be the second image you showed
+      appearance: "African American, early 40s, polished professional",
+      specialization: "Urban practices, corporate clients",
+      personality: "Authoritative but approachable"
+    },
+    {
+      id: 3,
+      name: "Christopher Bilingual",
+      image: "/avatars/christopher-bilingual.jpg", // Will be the third image you showed
+      appearance: "Hispanic/Latino, mid-30s, family-focused",
+      specialization: "Spanish-speaking clients, family law",
+      personality: "Culturally sensitive, community-oriented"
+    },
+    {
+      id: 4,
+      name: "Christopher Tech-Forward",
+      image: "/avatars/christopher-tech-forward.jpg", // Placeholder for now
+      appearance: "Asian American, early 30s, modern professional",
+      specialization: "Tech industry clients, younger demographics",
+      personality: "Efficient, detail-oriented, innovation-focused"
+    },
+    {
+      id: 5,
+      name: "Christopher Experienced",
+      image: "/avatars/christopher-experienced.jpg", // Placeholder for now
+      appearance: "Caucasian, early 50s, distinguished professional",
+      specialization: "High-net-worth clients, luxury real estate",
+      personality: "Wisdom-focused, trustworthy"
+    },
+    {
+      id: 6,
+      name: "Christopher Approachable",
+      image: "/avatars/christopher-approachable.jpg", // Placeholder for now
+      appearance: "Mixed/Multiracial, late 20s, energetic",
+      specialization: "First-time buyers, millennials",
+      personality: "Contemporary, peer-to-peer relatability"
+    },
+    {
+      id: 7,
+      name: "Christopher International",
+      image: "/avatars/christopher-international.jpg", // Placeholder for now
+      appearance: "Middle Eastern/South Asian, mid-30s",
+      specialization: "International clients, investment properties",
+      personality: "Culturally sophisticated, diplomatic"
+    },
+    {
+      id: 8,
+      name: "Christopher Community",
+      image: "/avatars/christopher-community.jpg", // Placeholder for now
+      appearance: "Native American, late 30s, community-focused",
+      specialization: "Community-based transactions, cultural sensitivity",
+      personality: "Respectful, traditional values with modern expertise"
+    }
+  ]
+
+  // Floating animation for Christopher avatars
+  const FloatingChristophers = () => {
+    return (
+      <div style={{
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        width: '100%',
+        height: '100%',
+        overflow: 'hidden',
+        pointerEvents: 'none',
+        zIndex: 1
+      }}>
+        {christopherAvatars.map((avatar, index) => (
+          <div
+            key={avatar.id}
+            style={{
+              position: 'absolute',
+              top: `${20 + (index * 10)}%`,
+              left: '100%',
+              animation: `floatAcross ${30 + (index * 2)}s linear infinite`,
+              animationDelay: `${index * 3}s`,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem',
+              background: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(10px)',
+              padding: '0.75rem',
+              borderRadius: '2rem',
+              border: '1px solid rgba(203, 150, 40, 0.3)',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            <img 
+              src={avatar.image}
+              alt={avatar.name}
+              style={{
+                width: '60px',
+                height: '60px',
+                borderRadius: '50%',
+                objectFit: 'cover',
+                border: '2px solid #cb9628',
+                animation: 'bounce 2s ease-in-out infinite'
+              }}
+            />
+            <span style={{
+              color: '#cb9628',
+              fontWeight: '600',
+              fontSize: '1.1rem',
+              animation: 'textBounce 2s ease-in-out infinite'
+            }}>
+              {avatar.name}
+            </span>
+          </div>
+        ))}
+        
+        <style jsx>{`
+          @keyframes floatAcross {
+            0% {
+              transform: translateX(0) translateY(0);
+            }
+            25% {
+              transform: translateX(-25vw) translateY(-10px);
+            }
+            50% {
+              transform: translateX(-50vw) translateY(0);
+            }
+            75% {
+              transform: translateX(-75vw) translateY(-10px);
+            }
+            100% {
+              transform: translateX(-100vw) translateY(0);
+            }
+          }
+          
+          @keyframes bounce {
+            0%, 100% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(-5px);
+            }
+          }
+          
+          @keyframes textBounce {
+            0%, 100% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(-3px);
+            }
+          }
+        `}</style>
+      </div>
+    )
+  }
+
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, #1e3a8a 0%, #7c3aed 50%, #3730a3 100%)',
+      background: 'linear-gradient(135deg, #032440 0%, #1e3a8a 50%, #032440 100%)', // Updated to brand navy
       fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       color: 'white',
+      position: 'relative',
       overflow: 'hidden'
     }}>
-      {/* Header */}
+      {/* Floating Christopher Animation */}
+      <FloatingChristophers />
+      
+      {/* Header with Dropdown Menus */}
       <header style={{ 
         position: 'relative', 
         zIndex: 10, 
@@ -49,34 +223,136 @@ export default function Home() {
           </div>
           
           <nav style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
-            <a href="#features" style={{ 
-              color: 'rgba(255,255,255,0.9)', 
+            {/* Features Dropdown */}
+            <div style={{ position: 'relative' }}>
+              <button 
+                onClick={() => setDropdownOpen(dropdownOpen === 'features' ? null : 'features')}
+                style={{ 
+                  color: 'rgba(255,255,255,0.9)', 
+                  background: 'none',
+                  border: 'none',
+                  fontSize: '1.1rem',
+                  fontWeight: '500',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem'
+                }}
+              >
+                Features ▼
+              </button>
+              {dropdownOpen === 'features' && (
+                <div style={{
+                  position: 'absolute',
+                  top: '100%',
+                  left: '0',
+                  background: 'rgba(3, 36, 64, 0.95)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(203, 150, 40, 0.3)',
+                  borderRadius: '0.5rem',
+                  padding: '1rem',
+                  minWidth: '200px',
+                  zIndex: 1000
+                }}>
+                  <a href="#ai-avatars" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>AI Avatars</a>
+                  <a href="#multi-language" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Multi-Language</a>
+                  <a href="#video-messaging" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Video Messaging</a>
+                  <a href="#case-management" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Case Management</a>
+                </div>
+              )}
+            </div>
+
+            {/* Christopher AI Dropdown */}
+            <div style={{ position: 'relative' }}>
+              <button 
+                onClick={() => setDropdownOpen(dropdownOpen === 'christopher' ? null : 'christopher')}
+                style={{ 
+                  color: 'rgba(255,255,255,0.9)', 
+                  background: 'none',
+                  border: 'none',
+                  fontSize: '1.1rem',
+                  fontWeight: '500',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem'
+                }}
+              >
+                Christopher AI ▼
+              </button>
+              {dropdownOpen === 'christopher' && (
+                <div style={{
+                  position: 'absolute',
+                  top: '100%',
+                  left: '0',
+                  background: 'rgba(3, 36, 64, 0.95)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(203, 150, 40, 0.3)',
+                  borderRadius: '0.5rem',
+                  padding: '1rem',
+                  minWidth: '200px',
+                  zIndex: 1000
+                }}>
+                  <a href="#christopher-classic" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Christopher Classic</a>
+                  <a href="#christopher-professional" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Christopher Professional</a>
+                  <a href="#christopher-bilingual" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Christopher Bilingual</a>
+                  <a href="#all-avatars" style={{ display: 'block', color: '#cb9628', textDecoration: 'none', padding: '0.5rem 0' }}>View All 8 Avatars</a>
+                </div>
+              )}
+            </div>
+
+            {/* Nevada Advantage Dropdown */}
+            <div style={{ position: 'relative' }}>
+              <button 
+                onClick={() => setDropdownOpen(dropdownOpen === 'nevada' ? null : 'nevada')}
+                style={{ 
+                  color: 'rgba(255,255,255,0.9)', 
+                  background: 'none',
+                  border: 'none',
+                  fontSize: '1.1rem',
+                  fontWeight: '500',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem'
+                }}
+              >
+                Nevada Advantage ▼
+              </button>
+              {dropdownOpen === 'nevada' && (
+                <div style={{
+                  position: 'absolute',
+                  top: '100%',
+                  left: '0',
+                  background: 'rgba(3, 36, 64, 0.95)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(203, 150, 40, 0.3)',
+                  borderRadius: '0.5rem',
+                  padding: '1rem',
+                  minWidth: '200px',
+                  zIndex: 1000
+                }}>
+                  <a href="#attorney-broker" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Attorney-Broker License</a>
+                  <a href="#multicultural-market" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Multicultural Market</a>
+                  <a href="#competitive-edge" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Competitive Edge</a>
+                  <a href="#compliance" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Nevada Compliance</a>
+                </div>
+              )}
+            </div>
+
+            {/* Portal Access */}
+            <a href="/portal" style={{ 
+              color: '#cb9628', 
               textDecoration: 'none',
               fontSize: '1.1rem',
-              fontWeight: '500',
-              transition: 'color 0.2s'
-            }}>Features</a>
-            <a href="#christopher" style={{ 
-              color: 'rgba(255,255,255,0.9)', 
-              textDecoration: 'none',
-              fontSize: '1.1rem',
-              fontWeight: '500',
-              transition: 'color 0.2s'
-            }}>Christopher AI</a>
-            <a href="#nevada" style={{ 
-              color: 'rgba(255,255,255,0.9)', 
-              textDecoration: 'none',
-              fontSize: '1.1rem',
-              fontWeight: '500',
-              transition: 'color 0.2s'
-            }}>Nevada Advantage</a>
-            <a href="#pricing" style={{ 
-              color: 'rgba(255,255,255,0.9)', 
-              textDecoration: 'none',
-              fontSize: '1.1rem',
-              fontWeight: '500',
-              transition: 'color 0.2s'
-            }}>Pricing</a>
+              fontWeight: '600',
+              border: '1px solid #cb9628',
+              padding: '0.5rem 1rem',
+              borderRadius: '0.5rem',
+              transition: 'all 0.2s'
+            }}>
+              Attorney Portal
+            </a>
           </nav>
         </div>
       </header>
@@ -86,7 +362,9 @@ export default function Home() {
         padding: '3rem 2rem',
         maxWidth: '1200px',
         margin: '0 auto',
-        textAlign: 'center'
+        textAlign: 'center',
+        position: 'relative',
+        zIndex: 2
       }}>
         <div style={{ marginBottom: '4rem' }}>
           <h2 style={{ 
@@ -123,7 +401,7 @@ export default function Home() {
           }}>
             <button style={{ 
               background: 'linear-gradient(135deg, #cb9628 0%, #fbbf24 100%)',
-              color: '#1e3a8a',
+              color: '#032440',
               border: 'none',
               padding: '1rem 2rem',
               fontSize: '1.2rem',
@@ -158,89 +436,43 @@ export default function Home() {
             fontSize: 'clamp(2rem, 5vw, 3rem)', 
             fontWeight: '700', 
             margin: '0 0 3rem 0',
-            color: '#cb9628'
+            background: 'linear-gradient(135deg, #ffffff 0%, #cb9628 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
           }}>
             Meet Christopher AI - 8 Cultural Avatars
           </h3>
           
           <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
             gap: '2rem',
             marginBottom: '3rem'
           }}>
-            {[
-              {
-                name: "Christopher Classic",
-                appearance: "Caucasian, late 30s, friendly everyman",
-                specialization: "General practice, suburban/rural markets",
-                personality: "Warm, neighborly, guy-next-door relatability"
-              },
-              {
-                name: "Christopher Professional", 
-                appearance: "African American, early 40s, polished professional",
-                specialization: "Urban practices, corporate clients",
-                personality: "Authoritative but approachable"
-              },
-              {
-                name: "Christopher Bilingual",
-                appearance: "Hispanic/Latino, mid-30s, family-focused",
-                specialization: "Spanish-speaking clients, family law",
-                personality: "Culturally sensitive, community-oriented"
-              },
-              {
-                name: "Christopher Tech-Forward",
-                appearance: "Asian American, early 30s, modern professional",
-                specialization: "Tech industry clients, younger demographics", 
-                personality: "Efficient, detail-oriented, innovation-focused"
-              },
-              {
-                name: "Christopher Experienced",
-                appearance: "Caucasian, early 50s, distinguished professional",
-                specialization: "High-net-worth clients, luxury real estate",
-                personality: "Wisdom-focused, trustworthy"
-              },
-              {
-                name: "Christopher Approachable",
-                appearance: "Mixed/Multiracial, late 20s, energetic",
-                specialization: "First-time buyers, millennials",
-                personality: "Contemporary, peer-to-peer relatability"
-              },
-              {
-                name: "Christopher International",
-                appearance: "Middle Eastern/South Asian, mid-30s",
-                specialization: "International clients, investment properties",
-                personality: "Culturally sophisticated, diplomatic"
-              },
-              {
-                name: "Christopher Community",
-                appearance: "Native American, late 30s, community-focused",
-                specialization: "Community-based transactions, cultural sensitivity",
-                personality: "Respectful, traditional values with modern expertise"
-              }
-            ].map((avatar, index) => (
-              <div key={index} style={{
+            {christopherAvatars.map((avatar, index) => (
+              <div key={avatar.id} style={{
                 background: 'rgba(255, 255, 255, 0.1)',
                 backdropFilter: 'blur(20px)',
                 borderRadius: '1rem',
                 padding: '2rem',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
+                border: '1px solid rgba(203, 150, 40, 0.3)',
                 transition: 'transform 0.2s, background 0.2s',
-                textAlign: 'left'
+                textAlign: 'center'
               }}>
-                <div style={{
-                  width: '4rem',
-                  height: '4rem',
-                  background: 'linear-gradient(135deg, #cb9628 0%, #fbbf24 100%)',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '1.5rem',
-                  marginBottom: '1rem'
-                }}>
-                  🤖
-                </div>
+                <img 
+                  src={avatar.image}
+                  alt={avatar.name}
+                  style={{
+                    width: '120px',
+                    height: '120px',
+                    borderRadius: '50%',
+                    objectFit: 'cover',
+                    border: '3px solid #cb9628',
+                    marginBottom: '1.5rem',
+                    transition: 'transform 0.2s'
+                  }}
+                />
                 <h4 style={{ 
                   fontSize: '1.3rem', 
                   fontWeight: '600', 
@@ -285,13 +517,16 @@ export default function Home() {
           borderRadius: '2rem',
           padding: '3rem',
           margin: '0 0 5rem 0',
-          border: '1px solid rgba(255, 255, 255, 0.2)'
+          border: '1px solid rgba(203, 150, 40, 0.3)'
         }}>
           <h3 style={{ 
             fontSize: 'clamp(2rem, 5vw, 3rem)', 
             fontWeight: '700', 
             margin: '0 0 2rem 0',
-            color: '#cb9628'
+            background: 'linear-gradient(135deg, #ffffff 0%, #cb9628 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
           }}>
             Nevada Attorney-Broker Advantage
           </h3>
@@ -302,7 +537,7 @@ export default function Home() {
             textAlign: 'left'
           }}>
             <div>
-              <h4 style={{ fontSize: '1.3rem', fontWeight: '600', margin: '0 0 1rem 0', color: '#fbbf24' }}>
+              <h4 style={{ fontSize: '1.3rem', fontWeight: '600', margin: '0 0 1rem 0', color: '#cb9628' }}>
                 🏠 Real Estate Law
               </h4>
               <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5' }}>
@@ -311,7 +546,7 @@ export default function Home() {
               </p>
             </div>
             <div>
-              <h4 style={{ fontSize: '1.3rem', fontWeight: '600', margin: '0 0 1rem 0', color: '#fbbf24' }}>
+              <h4 style={{ fontSize: '1.3rem', fontWeight: '600', margin: '0 0 1rem 0', color: '#cb9628' }}>
                 🌍 Multi-Cultural Market
               </h4>
               <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5' }}>
@@ -320,7 +555,7 @@ export default function Home() {
               </p>
             </div>
             <div>
-              <h4 style={{ fontSize: '1.3rem', fontWeight: '600', margin: '0 0 1rem 0', color: '#fbbf24' }}>
+              <h4 style={{ fontSize: '1.3rem', fontWeight: '600', margin: '0 0 1rem 0', color: '#cb9628' }}>
                 💼 Business Growth
               </h4>
               <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5' }}>
@@ -330,164 +565,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Pricing Section */}
-        <section id="pricing" style={{ marginBottom: '3rem' }}>
-          <h3 style={{ 
-            fontSize: 'clamp(2rem, 5vw, 3rem)', 
-            fontWeight: '700', 
-            margin: '0 0 3rem 0',
-            color: '#cb9628'
-          }}>
-            Choose Your Plan
-          </h3>
-          
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem',
-            maxWidth: '1000px',
-            margin: '0 auto'
-          }}>
-            {[
-              {
-                name: "Starter",
-                price: "$399",
-                period: "/month",
-                features: [
-                  "2 Christopher AI Avatars",
-                  "Basic Multi-Language Support",
-                  "Standard Video Messages",
-                  "Email Support",
-                  "Nevada Legal Templates"
-                ],
-                popular: false
-              },
-              {
-                name: "Professional", 
-                price: "$599",
-                period: "/month",
-                features: [
-                  "5 Christopher AI Avatars",
-                  "Advanced Multi-Language",
-                  "Custom Video Messages",
-                  "Priority Support",
-                  "Attorney-Broker Tools",
-                  "Advanced Analytics"
-                ],
-                popular: true
-              },
-              {
-                name: "Enterprise",
-                price: "$899", 
-                period: "/month",
-                features: [
-                  "All 8 Christopher AI Avatars",
-                  "Complete Cultural Intelligence",
-                  "Unlimited Video Messages",
-                  "White-Glove Support",
-                  "Custom Integrations",
-                  "Advanced Compliance Tools",
-                  "Team Management"
-                ],
-                popular: false
-              }
-            ].map((plan, index) => (
-              <div key={index} style={{
-                background: plan.popular 
-                  ? 'linear-gradient(135deg, rgba(203, 150, 40, 0.2) 0%, rgba(251, 191, 36, 0.1) 100%)'
-                  : 'rgba(255, 255, 255, 0.1)',
-                backdropFilter: 'blur(20px)',
-                borderRadius: '1.5rem',
-                padding: '2.5rem',
-                border: plan.popular 
-                  ? '2px solid #cb9628' 
-                  : '1px solid rgba(255, 255, 255, 0.2)',
-                position: 'relative',
-                transition: 'transform 0.2s',
-                textAlign: 'center'
-              }}>
-                {plan.popular && (
-                  <div style={{
-                    position: 'absolute',
-                    top: '-0.75rem',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    background: 'linear-gradient(135deg, #cb9628 0%, #fbbf24 100%)',
-                    color: '#1e3a8a',
-                    padding: '0.5rem 1.5rem',
-                    borderRadius: '2rem',
-                    fontSize: '0.9rem',
-                    fontWeight: '600'
-                  }}>
-                    Most Popular
-                  </div>
-                )}
-                
-                <h4 style={{ 
-                  fontSize: '1.5rem', 
-                  fontWeight: '700', 
-                  margin: '0 0 1rem 0',
-                  color: plan.popular ? '#cb9628' : 'white'
-                }}>
-                  {plan.name}
-                </h4>
-                
-                <div style={{ marginBottom: '2rem' }}>
-                  <span style={{ 
-                    fontSize: '3rem', 
-                    fontWeight: '700',
-                    color: '#cb9628'
-                  }}>
-                    {plan.price}
-                  </span>
-                  <span style={{ 
-                    fontSize: '1.1rem', 
-                    opacity: 0.8
-                  }}>
-                    {plan.period}
-                  </span>
-                </div>
-                
-                <ul style={{ 
-                  listStyle: 'none', 
-                  padding: 0, 
-                  margin: '0 0 2rem 0',
-                  textAlign: 'left'
-                }}>
-                  {plan.features.map((feature, fIndex) => (
-                    <li key={fIndex} style={{ 
-                      padding: '0.5rem 0',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.5rem'
-                    }}>
-                      <span style={{ color: '#22c55e', fontSize: '1.2rem' }}>✓</span>
-                      <span style={{ opacity: 0.9 }}>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <button style={{
-                  width: '100%',
-                  background: plan.popular 
-                    ? 'linear-gradient(135deg, #cb9628 0%, #fbbf24 100%)'
-                    : 'rgba(255, 255, 255, 0.1)',
-                  color: plan.popular ? '#1e3a8a' : 'white',
-                  border: plan.popular ? 'none' : '2px solid rgba(255, 255, 255, 0.3)',
-                  padding: '1rem',
-                  fontSize: '1.1rem',
-                  fontWeight: '600',
-                  borderRadius: '0.75rem',
-                  cursor: 'pointer',
-                  transition: 'transform 0.2s, background 0.2s'
-                }}>
-                  Get Started
-                </button>
-              </div>
-            ))}
-          </div>
-        </section>
       </main>
 
       {/* Footer */}
@@ -495,7 +572,9 @@ export default function Home() {
         textAlign: 'center', 
         padding: '2rem',
         opacity: 0.8,
-        borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+        borderTop: '1px solid rgba(203, 150, 40, 0.3)',
+        position: 'relative',
+        zIndex: 2
       }}>
         <p style={{ margin: 0, fontSize: '1rem' }}>
           © 2025 CaseClosed, Inc. | Revolutionizing Legal Technology with Christopher AI | Nevada State Bar Compliant
