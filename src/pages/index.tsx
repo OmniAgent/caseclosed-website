@@ -1,261 +1,505 @@
 export default function Home() {
   return (
-    <div 
-      className="min-h-screen"
-      style={{
-        background: 'linear-gradient(135deg, #1e3a8a 0%, #7c3aed 50%, #3730a3 100%)',
-        minHeight: '100vh'
-      }}
-    >
+    <div style={{
+      minHeight: '100vh',
+      background: 'linear-gradient(135deg, #1e3a8a 0%, #7c3aed 50%, #3730a3 100%)',
+      fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+      color: 'white',
+      overflow: 'hidden'
+    }}>
       {/* Header */}
-      <header className="relative z-10 px-6 py-8">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div 
-              className="w-10 h-10 rounded-lg flex items-center justify-center"
-              style={{ backgroundColor: '#fbbf24' }}
-            >
-              <span className="text-blue-900 font-bold text-xl">⚖️</span>
+      <header style={{ 
+        position: 'relative', 
+        zIndex: 10, 
+        padding: '2rem',
+        maxWidth: '1200px',
+        margin: '0 auto'
+      }}>
+        <div style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '1rem'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <div style={{
+              width: '3rem',
+              height: '3rem',
+              background: '#cb9628',
+              borderRadius: '0.75rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '1.5rem'
+            }}>
+              ⚖️
             </div>
-            <span className="text-white text-2xl font-bold">CaseClosed</span>
+            <h1 style={{ 
+              fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', 
+              fontWeight: '700', 
+              margin: 0,
+              background: 'linear-gradient(135deg, #ffffff 0%, #cb9628 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>
+              CaseClosed
+            </h1>
           </div>
-          <nav className="hidden md:flex space-x-8">
-            <a href="#features" className="text-white hover:text-yellow-400 transition-colors">Features</a>
-            <a href="#christopher" className="text-white hover:text-yellow-400 transition-colors">Christopher AI</a>
-            <a href="#nevada" className="text-white hover:text-yellow-400 transition-colors">Nevada Advantage</a>
-            <a href="#pricing" className="text-white hover:text-yellow-400 transition-colors">Pricing</a>
+          
+          <nav style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+            <a href="#features" style={{ 
+              color: 'rgba(255,255,255,0.9)', 
+              textDecoration: 'none',
+              fontSize: '1.1rem',
+              fontWeight: '500',
+              transition: 'color 0.2s'
+            }}>Features</a>
+            <a href="#christopher" style={{ 
+              color: 'rgba(255,255,255,0.9)', 
+              textDecoration: 'none',
+              fontSize: '1.1rem',
+              fontWeight: '500',
+              transition: 'color 0.2s'
+            }}>Christopher AI</a>
+            <a href="#nevada" style={{ 
+              color: 'rgba(255,255,255,0.9)', 
+              textDecoration: 'none',
+              fontSize: '1.1rem',
+              fontWeight: '500',
+              transition: 'color 0.2s'
+            }}>Nevada Advantage</a>
+            <a href="#pricing" style={{ 
+              color: 'rgba(255,255,255,0.9)', 
+              textDecoration: 'none',
+              fontSize: '1.1rem',
+              fontWeight: '500',
+              transition: 'color 0.2s'
+            }}>Pricing</a>
           </nav>
         </div>
       </header>
 
-      {/* Hero Section - Full Screen */}
-      <main className="relative z-10 px-6 py-20">
-        <div className="max-w-7xl mx-auto text-center">
-          {/* Hero Content */}
-          <div className="mb-16">
-            <h1 
-              className="font-bold text-white mb-8 leading-tight"
-              style={{ fontSize: 'clamp(3rem, 8vw, 8rem)' }}
-            >
-              Revolutionary
-              <br />
-              <span style={{ color: '#fbbf24' }}>Legal Technology</span>
-            </h1>
-            <p 
-              className="text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed"
-              style={{ fontSize: 'clamp(1.125rem, 2.5vw, 2rem)' }}
-            >
-              Transform your Nevada legal practice with Christopher AI's 8 cultural avatars, 
-              attorney-broker advantage, and multi-language client communication.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button 
-                className="text-lg px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105"
-                style={{ 
-                  backgroundColor: '#fbbf24', 
-                  color: '#1e3a8a',
-                  boxShadow: '0 4px 12px rgba(251, 191, 36, 0.3)'
-                }}
-              >
-                Start Free Trial
-              </button>
-              <button 
-                className="border-2 text-white hover:bg-white transition-all px-8 py-4 rounded-full text-lg"
-                style={{ 
-                  borderColor: '#ffffff',
-                  '&:hover': { color: '#1e3a8a' }
-                }}
-              >
-                Watch Demo
-              </button>
-            </div>
-          </div>
-
-          {/* Christopher AI Showcase */}
-          <div id="christopher" className="mb-20">
-            <h2 
-              className="font-bold text-white mb-12"
-              style={{ fontSize: 'clamp(2rem, 5vw, 5rem)' }}
-            >
-              Meet Christopher AI
-              <span style={{ color: '#fbbf24' }}> Avatars</span>
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 max-w-6xl mx-auto">
-              {[
-                { name: 'Classic', specialty: 'General Practice', color: '#3b82f6' },
-                { name: 'Professional', specialty: 'Corporate Law', color: '#374151' },
-                { name: 'Bilingual', specialty: 'Family Law', color: '#059669' },
-                { name: 'Tech-Forward', specialty: 'Tech Industry', color: '#7c3aed' },
-                { name: 'Experienced', specialty: 'High Net Worth', color: '#4f46e5' },
-                { name: 'Approachable', specialty: 'Millennials', color: '#ec4899' },
-                { name: 'International', specialty: 'Global Clients', color: '#0891b2' },
-                { name: 'Community', specialty: 'Tribal Law', color: '#dc2626' },
-              ].map((avatar, index) => (
-                <div key={index} className="text-center group cursor-pointer">
-                  <div 
-                    className="w-20 h-20 rounded-full mx-auto mb-3 flex items-center justify-center transition-all transform group-hover:scale-110"
-                    style={{ 
-                      backgroundColor: avatar.color,
-                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)'
-                    }}
-                  >
-                    <span className="text-white text-2xl">🤖</span>
-                  </div>
-                  <h3 className="text-white font-semibold text-sm mb-1">{avatar.name}</h3>
-                  <p className="text-blue-200 text-xs">{avatar.specialty}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Nevada Advantage */}
-          <div id="nevada" className="mb-20">
-            <div 
-              className="rounded-3xl p-12 max-w-4xl mx-auto"
-              style={{ 
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 255, 255, 0.2)'
-              }}
-            >
-              <h2 
-                className="font-bold text-white mb-8"
-                style={{ fontSize: 'clamp(2rem, 4vw, 4rem)' }}
-              >
-                Nevada Attorney-Broker
-                <span style={{ color: '#fbbf24' }}> Advantage</span>
-              </h2>
-              <div className="grid md:grid-cols-3 gap-8 text-center">
-                <div>
-                  <div className="text-4xl mb-4">⚖️</div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Legal Practice</h3>
-                  <p className="text-blue-200">Full-service legal representation</p>
-                </div>
-                <div>
-                  <div className="text-4xl mb-4">🏠</div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Real Estate</h3>
-                  <p className="text-blue-200">Licensed broker capabilities</p>
-                </div>
-                <div>
-                  <div className="text-4xl mb-4">💰</div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Revenue</h3>
-                  <p className="text-blue-200">Dual income streams</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Features Grid */}
-          <div id="features" className="mb-20">
-            <h2 
-              className="font-bold text-white mb-12"
-              style={{ fontSize: 'clamp(2rem, 4vw, 4rem)' }}
-            >
-              Revolutionary Features
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                { icon: '🌍', title: 'Multi-Language', desc: 'English, Spanish, Arabic, Chinese, Italian' },
-                { icon: '🎥', title: 'AI Videos', desc: 'Personalized client communications' },
-                { icon: '📱', title: 'Mobile First', desc: 'Attorney and client mobile access' },
-                { icon: '🔒', title: 'Legal Grade', desc: 'Attorney-client privilege protected' },
-              ].map((feature, index) => (
-                <div 
-                  key={index} 
-                  className="rounded-2xl p-6 text-center transition-all transform hover:scale-105"
-                  style={{ 
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.2)'
-                  }}
-                >
-                  <div className="text-4xl mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
-                  <p className="text-blue-200">{feature.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Pricing */}
-          <div id="pricing" className="mb-20">
-            <h2 
-              className="font-bold text-white mb-12"
-              style={{ fontSize: 'clamp(2rem, 4vw, 4rem)' }}
-            >
-              Nevada Attorney Pricing
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {[
-                { name: 'Professional', price: '$399', features: ['25 videos/month', 'Basic Christopher', 'Nevada compliance'] },
-                { name: 'Firm', price: '$599', features: ['75 videos/month', 'All Christopher avatars', 'Multi-language support'], popular: true },
-                { name: 'Enterprise', price: '$899', features: ['200 videos/month', 'White-label options', 'Priority support'] },
-              ].map((plan, index) => (
-                <div 
-                  key={index} 
-                  className={`rounded-2xl p-8 text-center transition-all transform hover:scale-105 ${
-                    plan.popular ? 'ring-2' : ''
-                  }`}
-                  style={{ 
-                    backgroundColor: plan.popular ? 'rgba(255, 255, 255, 0.2)' : 'rgba(255, 255, 255, 0.1)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    ringColor: plan.popular ? '#fbbf24' : 'transparent'
-                  }}
-                >
-                  {plan.popular && (
-                    <div 
-                      className="text-sm font-bold px-4 py-1 rounded-full mb-4 inline-block"
-                      style={{ backgroundColor: '#fbbf24', color: '#1e3a8a' }}
-                    >
-                      Most Popular
-                    </div>
-                  )}
-                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                  <div 
-                    className="font-bold mb-6"
-                    style={{ fontSize: '3rem', color: '#fbbf24' }}
-                  >
-                    {plan.price}
-                    <span className="text-lg text-blue-200">/month</span>
-                  </div>
-                  <ul className="space-y-3 mb-8">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="text-blue-200">✓ {feature}</li>
-                    ))}
-                  </ul>
-                  <button 
-                    className="w-full py-3 rounded-xl font-semibold transition-all transform hover:scale-105"
-                    style={{ backgroundColor: '#fbbf24', color: '#1e3a8a' }}
-                  >
-                    Start Trial
-                  </button>
-                </div>
-              ))}
-            </div>
+      {/* Hero Section */}
+      <main style={{ 
+        padding: '3rem 2rem',
+        maxWidth: '1200px',
+        margin: '0 auto',
+        textAlign: 'center'
+      }}>
+        <div style={{ marginBottom: '4rem' }}>
+          <h2 style={{ 
+            fontSize: 'clamp(2.5rem, 8vw, 5rem)', 
+            fontWeight: '700', 
+            margin: '0 0 1.5rem 0',
+            lineHeight: '1.1',
+            background: 'linear-gradient(135deg, #ffffff 0%, #cb9628 50%, #ffffff 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}>
+            Revolutionary Legal Technology
+          </h2>
+          <p style={{ 
+            fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', 
+            margin: '0 0 2rem 0',
+            opacity: 0.95,
+            maxWidth: '800px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            lineHeight: '1.4'
+          }}>
+            Transform your Nevada legal practice with Christopher AI's 8 cultural avatars, 
+            attorney-broker advantage, and multi-language intelligence.
+          </p>
+          
+          <div style={{ 
+            display: 'flex', 
+            gap: '1rem', 
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            marginTop: '2rem'
+          }}>
+            <button style={{ 
+              background: 'linear-gradient(135deg, #cb9628 0%, #fbbf24 100%)',
+              color: '#1e3a8a',
+              border: 'none',
+              padding: '1rem 2rem',
+              fontSize: '1.2rem',
+              fontWeight: '600',
+              borderRadius: '0.75rem',
+              cursor: 'pointer',
+              transition: 'transform 0.2s, box-shadow 0.2s',
+              boxShadow: '0 8px 32px rgba(203, 150, 40, 0.3)'
+            }}>
+              Start Free Trial
+            </button>
+            <button style={{ 
+              background: 'rgba(255, 255, 255, 0.1)',
+              color: 'white',
+              border: '2px solid rgba(255, 255, 255, 0.3)',
+              padding: '1rem 2rem',
+              fontSize: '1.2rem',
+              fontWeight: '600',
+              borderRadius: '0.75rem',
+              cursor: 'pointer',
+              transition: 'background 0.2s, border-color 0.2s',
+              backdropFilter: 'blur(10px)'
+            }}>
+              Watch Demo
+            </button>
           </div>
         </div>
+
+        {/* Christopher AI Avatars Section */}
+        <section id="christopher" style={{ marginBottom: '5rem' }}>
+          <h3 style={{ 
+            fontSize: 'clamp(2rem, 5vw, 3rem)', 
+            fontWeight: '700', 
+            margin: '0 0 3rem 0',
+            color: '#cb9628'
+          }}>
+            Meet Christopher AI - 8 Cultural Avatars
+          </h3>
+          
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '2rem',
+            marginBottom: '3rem'
+          }}>
+            {[
+              {
+                name: "Christopher Classic",
+                appearance: "Caucasian, late 30s, friendly everyman",
+                specialization: "General practice, suburban/rural markets",
+                personality: "Warm, neighborly, guy-next-door relatability"
+              },
+              {
+                name: "Christopher Professional", 
+                appearance: "African American, early 40s, polished professional",
+                specialization: "Urban practices, corporate clients",
+                personality: "Authoritative but approachable"
+              },
+              {
+                name: "Christopher Bilingual",
+                appearance: "Hispanic/Latino, mid-30s, family-focused",
+                specialization: "Spanish-speaking clients, family law",
+                personality: "Culturally sensitive, community-oriented"
+              },
+              {
+                name: "Christopher Tech-Forward",
+                appearance: "Asian American, early 30s, modern professional",
+                specialization: "Tech industry clients, younger demographics", 
+                personality: "Efficient, detail-oriented, innovation-focused"
+              },
+              {
+                name: "Christopher Experienced",
+                appearance: "Caucasian, early 50s, distinguished professional",
+                specialization: "High-net-worth clients, luxury real estate",
+                personality: "Wisdom-focused, trustworthy"
+              },
+              {
+                name: "Christopher Approachable",
+                appearance: "Mixed/Multiracial, late 20s, energetic",
+                specialization: "First-time buyers, millennials",
+                personality: "Contemporary, peer-to-peer relatability"
+              },
+              {
+                name: "Christopher International",
+                appearance: "Middle Eastern/South Asian, mid-30s",
+                specialization: "International clients, investment properties",
+                personality: "Culturally sophisticated, diplomatic"
+              },
+              {
+                name: "Christopher Community",
+                appearance: "Native American, late 30s, community-focused",
+                specialization: "Community-based transactions, cultural sensitivity",
+                personality: "Respectful, traditional values with modern expertise"
+              }
+            ].map((avatar, index) => (
+              <div key={index} style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(20px)',
+                borderRadius: '1rem',
+                padding: '2rem',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                transition: 'transform 0.2s, background 0.2s',
+                textAlign: 'left'
+              }}>
+                <div style={{
+                  width: '4rem',
+                  height: '4rem',
+                  background: 'linear-gradient(135deg, #cb9628 0%, #fbbf24 100%)',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '1.5rem',
+                  marginBottom: '1rem'
+                }}>
+                  🤖
+                </div>
+                <h4 style={{ 
+                  fontSize: '1.3rem', 
+                  fontWeight: '600', 
+                  margin: '0 0 0.5rem 0',
+                  color: '#cb9628'
+                }}>
+                  {avatar.name}
+                </h4>
+                <p style={{ 
+                  fontSize: '0.95rem', 
+                  margin: '0 0 0.75rem 0',
+                  opacity: 0.9,
+                  lineHeight: '1.4'
+                }}>
+                  {avatar.appearance}
+                </p>
+                <p style={{ 
+                  fontSize: '0.9rem', 
+                  margin: '0 0 0.75rem 0',
+                  opacity: 0.8,
+                  fontStyle: 'italic'
+                }}>
+                  {avatar.specialization}
+                </p>
+                <p style={{ 
+                  fontSize: '0.85rem', 
+                  margin: 0,
+                  color: '#93c5fd',
+                  fontWeight: '500'
+                }}>
+                  {avatar.personality}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Nevada Advantage Section */}
+        <section id="nevada" style={{ 
+          background: 'rgba(255, 255, 255, 0.1)',
+          backdropFilter: 'blur(20px)',
+          borderRadius: '2rem',
+          padding: '3rem',
+          margin: '0 0 5rem 0',
+          border: '1px solid rgba(255, 255, 255, 0.2)'
+        }}>
+          <h3 style={{ 
+            fontSize: 'clamp(2rem, 5vw, 3rem)', 
+            fontWeight: '700', 
+            margin: '0 0 2rem 0',
+            color: '#cb9628'
+          }}>
+            Nevada Attorney-Broker Advantage
+          </h3>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '2rem',
+            textAlign: 'left'
+          }}>
+            <div>
+              <h4 style={{ fontSize: '1.3rem', fontWeight: '600', margin: '0 0 1rem 0', color: '#fbbf24' }}>
+                🏠 Real Estate Law
+              </h4>
+              <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5' }}>
+                Dual attorney-broker licensing allows you to represent clients in both legal and real estate transactions, 
+                maximizing revenue per case.
+              </p>
+            </div>
+            <div>
+              <h4 style={{ fontSize: '1.3rem', fontWeight: '600', margin: '0 0 1rem 0', color: '#fbbf24' }}>
+                🌍 Multi-Cultural Market
+              </h4>
+              <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5' }}>
+                Nevada's diverse population needs Christopher AI's cultural intelligence to serve Spanish, Arabic, 
+                Chinese, and other language communities effectively.
+              </p>
+            </div>
+            <div>
+              <h4 style={{ fontSize: '1.3rem', fontWeight: '600', margin: '0 0 1rem 0', color: '#fbbf24' }}>
+                💼 Business Growth
+              </h4>
+              <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5' }}>
+                Unique positioning in Nevada's competitive market with AI-powered client communication 
+                and cultural sensitivity gives you a decisive advantage.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing Section */}
+        <section id="pricing" style={{ marginBottom: '3rem' }}>
+          <h3 style={{ 
+            fontSize: 'clamp(2rem, 5vw, 3rem)', 
+            fontWeight: '700', 
+            margin: '0 0 3rem 0',
+            color: '#cb9628'
+          }}>
+            Choose Your Plan
+          </h3>
+          
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '2rem',
+            maxWidth: '1000px',
+            margin: '0 auto'
+          }}>
+            {[
+              {
+                name: "Starter",
+                price: "$399",
+                period: "/month",
+                features: [
+                  "2 Christopher AI Avatars",
+                  "Basic Multi-Language Support",
+                  "Standard Video Messages",
+                  "Email Support",
+                  "Nevada Legal Templates"
+                ],
+                popular: false
+              },
+              {
+                name: "Professional", 
+                price: "$599",
+                period: "/month",
+                features: [
+                  "5 Christopher AI Avatars",
+                  "Advanced Multi-Language",
+                  "Custom Video Messages",
+                  "Priority Support",
+                  "Attorney-Broker Tools",
+                  "Advanced Analytics"
+                ],
+                popular: true
+              },
+              {
+                name: "Enterprise",
+                price: "$899", 
+                period: "/month",
+                features: [
+                  "All 8 Christopher AI Avatars",
+                  "Complete Cultural Intelligence",
+                  "Unlimited Video Messages",
+                  "White-Glove Support",
+                  "Custom Integrations",
+                  "Advanced Compliance Tools",
+                  "Team Management"
+                ],
+                popular: false
+              }
+            ].map((plan, index) => (
+              <div key={index} style={{
+                background: plan.popular 
+                  ? 'linear-gradient(135deg, rgba(203, 150, 40, 0.2) 0%, rgba(251, 191, 36, 0.1) 100%)'
+                  : 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(20px)',
+                borderRadius: '1.5rem',
+                padding: '2.5rem',
+                border: plan.popular 
+                  ? '2px solid #cb9628' 
+                  : '1px solid rgba(255, 255, 255, 0.2)',
+                position: 'relative',
+                transition: 'transform 0.2s',
+                textAlign: 'center'
+              }}>
+                {plan.popular && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '-0.75rem',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    background: 'linear-gradient(135deg, #cb9628 0%, #fbbf24 100%)',
+                    color: '#1e3a8a',
+                    padding: '0.5rem 1.5rem',
+                    borderRadius: '2rem',
+                    fontSize: '0.9rem',
+                    fontWeight: '600'
+                  }}>
+                    Most Popular
+                  </div>
+                )}
+                
+                <h4 style={{ 
+                  fontSize: '1.5rem', 
+                  fontWeight: '700', 
+                  margin: '0 0 1rem 0',
+                  color: plan.popular ? '#cb9628' : 'white'
+                }}>
+                  {plan.name}
+                </h4>
+                
+                <div style={{ marginBottom: '2rem' }}>
+                  <span style={{ 
+                    fontSize: '3rem', 
+                    fontWeight: '700',
+                    color: '#cb9628'
+                  }}>
+                    {plan.price}
+                  </span>
+                  <span style={{ 
+                    fontSize: '1.1rem', 
+                    opacity: 0.8
+                  }}>
+                    {plan.period}
+                  </span>
+                </div>
+                
+                <ul style={{ 
+                  listStyle: 'none', 
+                  padding: 0, 
+                  margin: '0 0 2rem 0',
+                  textAlign: 'left'
+                }}>
+                  {plan.features.map((feature, fIndex) => (
+                    <li key={fIndex} style={{ 
+                      padding: '0.5rem 0',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.5rem'
+                    }}>
+                      <span style={{ color: '#22c55e', fontSize: '1.2rem' }}>✓</span>
+                      <span style={{ opacity: 0.9 }}>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <button style={{
+                  width: '100%',
+                  background: plan.popular 
+                    ? 'linear-gradient(135deg, #cb9628 0%, #fbbf24 100%)'
+                    : 'rgba(255, 255, 255, 0.1)',
+                  color: plan.popular ? '#1e3a8a' : 'white',
+                  border: plan.popular ? 'none' : '2px solid rgba(255, 255, 255, 0.3)',
+                  padding: '1rem',
+                  fontSize: '1.1rem',
+                  fontWeight: '600',
+                  borderRadius: '0.75rem',
+                  cursor: 'pointer',
+                  transition: 'transform 0.2s, background 0.2s'
+                }}>
+                  Get Started
+                </button>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 px-6 py-12" style={{ borderTop: '1px solid rgba(255, 255, 255, 0.2)' }}>
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="flex items-center justify-center space-x-3 mb-6">
-            <div 
-              className="w-8 h-8 rounded-lg flex items-center justify-center"
-              style={{ backgroundColor: '#fbbf24' }}
-            >
-              <span className="text-blue-900 font-bold">⚖️</span>
-            </div>
-            <span className="text-white text-xl font-bold">CaseClosed</span>
-          </div>
-          <p className="text-blue-200 mb-4">
-            Revolutionary legal technology with Christopher AI cultural intelligence
-          </p>
-          <p className="text-blue-300 text-sm">
-            © 2025 CaseClosed, Inc. Nevada State Bar Compliant. Attorney-Client Privilege Protected.
-          </p>
-        </div>
+      <footer style={{ 
+        textAlign: 'center', 
+        padding: '2rem',
+        opacity: 0.8,
+        borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+      }}>
+        <p style={{ margin: 0, fontSize: '1rem' }}>
+          © 2025 CaseClosed, Inc. | Revolutionizing Legal Technology with Christopher AI | Nevada State Bar Compliant
+        </p>
       </footer>
     </div>
   )
