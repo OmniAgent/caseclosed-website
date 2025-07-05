@@ -1,4 +1,41 @@
-import { useState } from 'react'
+{
+      id: 4,
+      name: "Christopher Tech-Forward",
+      image: "/avatars/christopher-tech-forward.png", // Your real Tech-Forward avatar
+      appearance: "Asian American, early 30s, modern professional",
+      specialization: "Tech industry clients, younger demographics",
+      personality: "Efficient, detail-oriented, innovation-focused"
+    },
+    {
+      id: 5,
+      name: "Christopher Experienced",
+      image: "/avatars/christopher-experienced.png", // Your real Experienced avatar
+      appearance: "Caucasian, early 50s, distinguished professional",
+      specialization: "High-net-worth clients, luxury real estate",
+      personality: "Wisdom-focused, trustworthy"
+    },
+    {
+      id: 6,
+      name: "Christopher Approachable",
+      image: "/avatars/christopher-approachable.png", // Your real Approachable avatar
+      appearance: "Mixed/Multiracial, late 20s, energetic",
+      specialization: "First-time buyers, millennials",
+      personality: "Contemporary, peer-to-peer relatability"
+    },
+    {
+      id: 7,
+      name: "Christopher International",
+      image: "/avatars/christopher-international.png", // Your real International avatar
+      appearance: "Middle Eastern/South Asian, mid-30s",
+      specialization: "International clients, investment properties",
+      personality: "Culturally sophisticated, diplomatic"
+    },
+    {
+      id: 8,
+      name: "Christopher Community",
+      image: "/avatars/christopher-community.png", // Your real Community avatar
+      appearance: "Native American, late 30s, community-focused",
+      import { useState } from 'react'
 
 export default function Home() {
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null)
@@ -32,7 +69,7 @@ export default function Home() {
     {
       id: 4,
       name: "Christopher Tech-Forward",
-      image: "/avatars/christopher-classic.png", // Using Classic as placeholder for now
+      image: "/avatars/christopher-tech-forward.png", // Your real Tech-Forward avatar
       appearance: "Asian American, early 30s, modern professional",
       specialization: "Tech industry clients, younger demographics",
       personality: "Efficient, detail-oriented, innovation-focused"
@@ -40,7 +77,7 @@ export default function Home() {
     {
       id: 5,
       name: "Christopher Experienced",
-      image: "/avatars/christopher-professional.png", // Using Professional as placeholder for now
+      image: "/avatars/christopher-experienced.png", // Your real Experienced avatar
       appearance: "Caucasian, early 50s, distinguished professional",
       specialization: "High-net-worth clients, luxury real estate",
       personality: "Wisdom-focused, trustworthy"
@@ -48,7 +85,7 @@ export default function Home() {
     {
       id: 6,
       name: "Christopher Approachable",
-      image: "/avatars/christopher-bilingual.png", // Using Bilingual as placeholder for now
+      image: "/avatars/christopher-approachable.png", // Your real Approachable avatar
       appearance: "Mixed/Multiracial, late 20s, energetic",
       specialization: "First-time buyers, millennials",
       personality: "Contemporary, peer-to-peer relatability"
@@ -56,7 +93,7 @@ export default function Home() {
     {
       id: 7,
       name: "Christopher International",
-      image: "/avatars/christopher-classic.png", // Using Classic as placeholder for now
+      image: "/avatars/christopher-international.png", // Your real International avatar
       appearance: "Middle Eastern/South Asian, mid-30s",
       specialization: "International clients, investment properties",
       personality: "Culturally sophisticated, diplomatic"
@@ -64,7 +101,7 @@ export default function Home() {
     {
       id: 8,
       name: "Christopher Community",
-      image: "/avatars/christopher-professional.png", // Using Professional as placeholder for now
+      image: "/avatars/christopher-community.png", // Your real Community avatar
       appearance: "Native American, late 30s, community-focused",
       specialization: "Community-based transactions, cultural sensitivity",
       personality: "Respectful, traditional values with modern expertise"
@@ -196,18 +233,16 @@ export default function Home() {
           gap: '1rem'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <div style={{
-              width: '3rem',
-              height: '3rem',
-              background: '#cb9628',
-              borderRadius: '0.75rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '1.5rem'
-            }}>
-              ⚖️
-            </div>
+            <img 
+              src="/logo/caseclosed-logo.png"
+              alt="CaseClosed Logo" 
+              style={{
+                width: '3rem',
+                height: '3rem',
+                borderRadius: '0.5rem',
+                objectFit: 'contain'
+              }}
+            />
             <h1 style={{ 
               fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', 
               fontWeight: '700', 
