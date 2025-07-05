@@ -3,71 +3,71 @@ import { useState } from 'react'
 export default function Home() {
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null)
 
-  // Christopher avatars data with real info
+  // Christopher avatars data with personal perspectives
   const christopherAvatars = [
     {
       id: 1,
       name: "Christopher Classic",
-      image: "/avatars/christopher-classic.png", // Your real Caucasian male photo
-      appearance: "Caucasian, late 30s, friendly everyman",
-      specialization: "General practice, suburban/rural markets",
-      personality: "Warm, neighborly, guy-next-door relatability"
+      image: "/avatars/christopher-classic.png",
+      personalIntro: "Hi, I'm Christopher Classic. I make complex legal processes feel simple and personal.",
+      expertise: "I excel at breaking down complicated real estate transactions into clear, manageable steps for clients who've never bought property before.",
+      howIHelp: "I handle all the coordination details so you can focus on the legal protection your clients need, while I make sure nothing falls through the cracks."
     },
     {
       id: 2,
       name: "Christopher Professional", 
-      image: "/avatars/christopher-professional.png", // Your real African American male photo
-      appearance: "African American, early 40s, polished professional",
-      specialization: "Urban practices, corporate clients",
-      personality: "Authoritative but approachable"
+      image: "/avatars/christopher-professional.png",
+      personalIntro: "I'm Christopher Professional. I bring corporate-level precision to every transaction.",
+      expertise: "My strength is managing high-stakes deals with multiple parties, tight deadlines, and complex financing structures.",
+      howIHelp: "I coordinate with corporate clients, lenders, and title companies using their preferred communication styles, ensuring your legal expertise shines through every interaction."
     },
     {
       id: 3,
       name: "Christopher Bilingual",
-      image: "/avatars/christopher-bilingual.png", // Your real Hispanic/Latino male photo
-      appearance: "Hispanic/Latino, mid-30s, family-focused",
-      specialization: "Spanish-speaking clients, family law",
-      personality: "Culturally sensitive, community-oriented"
+      image: "/avatars/christopher-bilingual.png",
+      personalIntro: "Soy Christopher Bilingual. I bridge language gaps and build trust across cultures.",
+      expertise: "I specialize in clear communication and cultural sensitivity, ensuring every family understands their legal rights and real estate options.",
+      howIHelp: "I handle multilingual client communication and cultural nuances, so you can provide comprehensive legal services to diverse communities with confidence."
     },
     {
       id: 4,
       name: "Christopher Tech-Forward",
-      image: "/avatars/christopher-tech-forward.png", // Your real Tech-Forward avatar
-      appearance: "Asian American, early 30s, modern professional",
-      specialization: "Tech industry clients, younger demographics",
-      personality: "Efficient, detail-oriented, innovation-focused"
+      image: "/avatars/christopher-tech-forward.png",
+      personalIntro: "I'm Christopher Tech-Forward. I speak fluent technology and make innovation accessible.",
+      expertise: "I excel at digital-first processes, virtual closings, and tech-savvy clients who expect seamless, efficient experiences.",
+      howIHelp: "I streamline technology integration and digital workflows, allowing you to offer cutting-edge legal services while maintaining personal attorney-client relationships."
     },
     {
       id: 5,
       name: "Christopher Experienced",
-      image: "/avatars/christopher-experienced.png", // Your real Experienced avatar
-      appearance: "Caucasian, early 50s, distinguished professional",
-      specialization: "High-net-worth clients, luxury real estate",
-      personality: "Wisdom-focused, trustworthy"
+      image: "/avatars/christopher-experienced.png",
+      personalIntro: "I'm Christopher Experienced. I've seen it all and know how to navigate any situation.",
+      expertise: "My expertise is in complex estates, luxury properties, and situations requiring discretion and sophisticated problem-solving.",
+      howIHelp: "I anticipate potential issues before they arise and coordinate with high-net-worth clients, ensuring your legal wisdom guides sophisticated transactions smoothly."
     },
     {
       id: 6,
       name: "Christopher Approachable",
-      image: "/avatars/christopher-approachable.png", // Your real Approachable avatar
-      appearance: "Mixed/Multiracial, late 20s, energetic",
-      specialization: "First-time buyers, millennials",
-      personality: "Contemporary, peer-to-peer relatability"
+      image: "/avatars/christopher-approachable.png",
+      personalIntro: "Hey, I'm Christopher Approachable. I make legal processes feel less intimidating and more collaborative.",
+      expertise: "I connect naturally with first-time buyers and younger clients, making complex legal concepts accessible and stress-free.",
+      howIHelp: "I create comfortable, transparent communication that helps your clients feel confident in their decisions while ensuring they understand the legal protection you provide."
     },
     {
       id: 7,
       name: "Christopher International",
-      image: "/avatars/christopher-international.png", // Your real International avatar
-      appearance: "Middle Eastern/South Asian, mid-30s",
-      specialization: "International clients, investment properties",
-      personality: "Culturally sophisticated, diplomatic"
+      image: "/avatars/christopher-international.png",
+      personalIntro: "I'm Christopher International. I understand global perspectives and cross-cultural business practices.",
+      expertise: "I specialize in international transactions, investment properties, and clients with diverse cultural backgrounds and business expectations.",
+      howIHelp: "I navigate cultural communication styles and international business practices, ensuring your legal expertise translates effectively across different cultural contexts."
     },
     {
       id: 8,
       name: "Christopher Community",
-      image: "/avatars/christopher-community.png", // Your real Community avatar
-      appearance: "Native American, late 30s, community-focused",
-      specialization: "Community-based transactions, cultural sensitivity",
-      personality: "Respectful, traditional values with modern expertise"
+      image: "/avatars/christopher-community.png",
+      personalIntro: "I'm Christopher Community. I understand the importance of relationships, traditions, and doing right by everyone involved.",
+      expertise: "I excel at community-focused transactions where relationships, trust, and honoring commitments are as important as the legal details.",
+      howIHelp: "I foster genuine connections and respect cultural values, ensuring your legal services strengthen community relationships while protecting everyone's interests."
     }
   ]
 
@@ -298,10 +298,10 @@ export default function Home() {
               )}
             </div>
 
-            {/* Nevada NRS 7.107 Dropdown */}
+            {/* State Laws Dropdown */}
             <div style={{ position: 'relative' }}>
               <button 
-                onClick={() => setDropdownOpen(dropdownOpen === 'nevada' ? null : 'nevada')}
+                onClick={() => setDropdownOpen(dropdownOpen === 'states' ? null : 'states')}
                 style={{ 
                   color: 'rgba(255,255,255,0.9)', 
                   background: 'none',
@@ -314,9 +314,9 @@ export default function Home() {
                   gap: '0.5rem'
                 }}
               >
-                Nevada NRS 7.107 ▼
+                State Laws ▼
               </button>
-              {dropdownOpen === 'nevada' && (
+              {dropdownOpen === 'states' && (
                 <div style={{
                   position: 'absolute',
                   top: '100%',
@@ -326,13 +326,22 @@ export default function Home() {
                   border: '1px solid rgba(203, 150, 40, 0.3)',
                   borderRadius: '0.5rem',
                   padding: '1rem',
-                  minWidth: '200px',
+                  minWidth: '250px',
                   zIndex: 1000
                 }}>
-                  <a href="#attorney-broker-law" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Attorney-Broker Law</a>
-                  <a href="#revenue-opportunity" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Revenue Opportunity</a>
-                  <a href="#competitive-advantage" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Competitive Advantage</a>
-                  <a href="#compliance-guide" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.5rem 0' }}>Compliance Guide</a>
+                  <div style={{ borderBottom: '1px solid rgba(203, 150, 40, 0.3)', paddingBottom: '0.5rem', marginBottom: '0.5rem' }}>
+                    <span style={{ color: '#cb9628', fontSize: '0.9rem', fontWeight: '600' }}>NEVADA - Full Attorney-Broker</span>
+                  </div>
+                  <a href="https://www.leg.state.nv.us/nrs/nrs-007.html#NRS7Sec107" target="_blank" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.3rem 0' }}>Nevada NRS § 7.107</a>
+                  <a href="#nevada-advantage" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.3rem 0' }}>Nevada Opportunities</a>
+                  <a href="#nevada-compliance" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.3rem 0' }}>Nevada Compliance</a>
+                  
+                  <div style={{ borderBottom: '1px solid rgba(203, 150, 40, 0.3)', paddingBottom: '0.5rem', marginBottom: '0.5rem', marginTop: '1rem' }}>
+                    <span style={{ color: '#cb9628', fontSize: '0.9rem', fontWeight: '600' }}>TEXAS - Attorney-Enhanced Services</span>
+                  </div>
+                  <a href="https://www.trec.texas.gov/sites/default/files/pdf-forms/rules-regulations/22_TAC_535.pdf" target="_blank" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.3rem 0' }}>Texas Admin Code § 535.31</a>
+                  <a href="#texas-advantage" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.3rem 0' }}>Texas Opportunities</a>
+                  <a href="#texas-compliance" style={{ display: 'block', color: 'white', textDecoration: 'none', padding: '0.3rem 0' }}>Texas Compliance</a>
                 </div>
               )}
             </div>
@@ -363,7 +372,7 @@ export default function Home() {
         position: 'relative',
         zIndex: 2
       }}>
-        <div style={{ marginBottom: '4rem' }}>
+        <div style={{ marginBottom: '4rem', textAlign: 'center' }}>
           <h2 style={{ 
             fontSize: 'clamp(2.5rem, 8vw, 5rem)', 
             fontWeight: '700', 
@@ -372,57 +381,64 @@ export default function Home() {
             background: 'linear-gradient(135deg, #ffffff 0%, #cb9628 50%, #ffffff 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text'
+            backgroundClip: 'text',
+            textAlign: 'center'
           }}>
-            Nevada Attorneys: Stop Losing $100K+ Annual Revenue
+            Texas & Nevada Attorneys: Stop Losing $100K+ Annual Revenue
           </h2>
           <p style={{ 
             fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', 
             margin: '0 0 2rem 0',
             opacity: 0.95,
-            maxWidth: '800px',
+            maxWidth: '900px',
             marginLeft: 'auto',
             marginRight: 'auto',
-            lineHeight: '1.4'
+            lineHeight: '1.4',
+            textAlign: 'center'
           }}>
-            You didn't go to law school to sell houses - but Nevada NRS 7.107 lets you capture real estate commissions WITHOUT becoming a real estate expert. Christopher AI handles the complexity while you provide legal oversight.
+            You didn't go to law school to sell houses - but Texas and Nevada laws let you capture real estate revenue WITHOUT becoming a real estate expert. Christopher AI handles the complexity while you provide legal oversight.
           </p>
           
           <div style={{ 
             display: 'flex', 
             gap: '1rem', 
             justifyContent: 'center',
+            alignItems: 'center',
             flexWrap: 'wrap',
             marginTop: '2rem'
           }}>
-            <button style={{ 
-              background: 'linear-gradient(135deg, #cb9628 0%, #fbbf24 100%)',
-              color: '#032440',
-              border: 'none',
-              padding: '1rem 2rem',
-              fontSize: '1.2rem',
-              fontWeight: '600',
-              borderRadius: '0.75rem',
-              cursor: 'pointer',
-              transition: 'transform 0.2s, box-shadow 0.2s',
-              boxShadow: '0 8px 32px rgba(203, 150, 40, 0.3)'
-            }}>
-              Calculate Your Lost Revenue
-            </button>
-            <button style={{ 
-              background: 'rgba(255, 255, 255, 0.1)',
-              color: 'white',
-              border: '2px solid rgba(255, 255, 255, 0.3)',
-              padding: '1rem 2rem',
-              fontSize: '1.2rem',
-              fontWeight: '600',
-              borderRadius: '0.75rem',
-              cursor: 'pointer',
-              transition: 'background 0.2s, border-color 0.2s',
-              backdropFilter: 'blur(10px)'
-            }}>
-              Watch Christopher Demo
-            </button>
+            <a href="/calculate-revenue" style={{ textDecoration: 'none' }}>
+              <button style={{ 
+                background: 'linear-gradient(135deg, #cb9628 0%, #fbbf24 100%)',
+                color: '#032440',
+                border: 'none',
+                padding: '1rem 2rem',
+                fontSize: '1.2rem',
+                fontWeight: '600',
+                borderRadius: '0.75rem',
+                cursor: 'pointer',
+                transition: 'transform 0.2s, box-shadow 0.2s',
+                boxShadow: '0 8px 32px rgba(203, 150, 40, 0.3)'
+              }}>
+                Calculate Revenue by State
+              </button>
+            </a>
+            <a href="/christopher-demo" style={{ textDecoration: 'none' }}>
+              <button style={{ 
+                background: 'rgba(255, 255, 255, 0.1)',
+                color: 'white',
+                border: '2px solid rgba(255, 255, 255, 0.3)',
+                padding: '1rem 2rem',
+                fontSize: '1.2rem',
+                fontWeight: '600',
+                borderRadius: '0.75rem',
+                cursor: 'pointer',
+                transition: 'background 0.2s, border-color 0.2s',
+                backdropFilter: 'blur(10px)'
+              }}>
+                Watch Christopher Demo
+              </button>
+            </a>
           </div>
         </div>
 
@@ -435,9 +451,10 @@ export default function Home() {
             background: 'linear-gradient(135deg, #ffffff 0%, #cb9628 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text'
+            backgroundClip: 'text',
+            textAlign: 'center'
           }}>
-            Christopher AI: Your Real Estate Expert (So You Don't Have To Be)
+            Christopher AI: Texas & Nevada's Real Estate Expert
           </h3>
           
           <div style={{ 
@@ -478,36 +495,39 @@ export default function Home() {
                   {avatar.name}
                 </h4>
                 <p style={{ 
-                  fontSize: '0.95rem', 
-                  margin: '0 0 0.75rem 0',
-                  opacity: 0.9,
-                  lineHeight: '1.4'
+                  fontSize: '1rem', 
+                  margin: '0 0 1rem 0',
+                  opacity: 0.95,
+                  lineHeight: '1.4',
+                  fontStyle: 'italic',
+                  color: '#fbbf24'
                 }}>
-                  {avatar.appearance}
+                  "{avatar.personalIntro}"
                 </p>
                 <p style={{ 
                   fontSize: '0.9rem', 
-                  margin: '0 0 0.75rem 0',
-                  opacity: 0.8,
-                  fontStyle: 'italic'
+                  margin: '0 0 1rem 0',
+                  opacity: 0.9,
+                  lineHeight: '1.4'
                 }}>
-                  {avatar.specialization}
+                  <strong>My Expertise:</strong> {avatar.expertise}
                 </p>
                 <p style={{ 
                   fontSize: '0.85rem', 
                   margin: 0,
                   color: '#93c5fd',
-                  fontWeight: '500'
+                  fontWeight: '500',
+                  lineHeight: '1.4'
                 }}>
-                  {avatar.personality}
+                  <strong>How I Help You:</strong> {avatar.howIHelp}
                 </p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Nevada Advantage Section */}
-        <section id="nevada" style={{ 
+        {/* Two-State Advantage Section */}
+        <section id="states" style={{ 
           background: 'rgba(255, 255, 255, 0.1)',
           backdropFilter: 'blur(20px)',
           borderRadius: '2rem',
@@ -522,43 +542,118 @@ export default function Home() {
             background: 'linear-gradient(135deg, #ffffff 0%, #cb9628 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text'
+            backgroundClip: 'text',
+            textAlign: 'center'
           }}>
-            Nevada NRS 7.107: Your Unfair Advantage
+            Two States, Two Powerful Opportunities
           </h3>
+          
+          {/* Nevada Section */}
+          <div style={{ marginBottom: '3rem' }}>
+            <h4 style={{ fontSize: '1.8rem', fontWeight: '600', margin: '0 0 1.5rem 0', color: '#cb9628' }}>
+              🌟 Nevada: Full Attorney-Broker Platform
+            </h4>
+            <div style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gap: '2rem',
+              textAlign: 'left',
+              marginBottom: '2rem'
+            }}>
+              <div>
+                <h5 style={{ fontSize: '1.1rem', fontWeight: '600', margin: '0 0 0.5rem 0', color: '#fbbf24' }}>
+                  Nevada NRS § 7.107 (2009)
+                </h5>
+                <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5', fontSize: '0.95rem' }}>
+                  Most permissive attorney exemption in the U.S. Full real estate broker functions without separate licensing. 
+                  Single oversight by Nevada State Bar.
+                </p>
+              </div>
+              <div>
+                <h5 style={{ fontSize: '1.1rem', fontWeight: '600', margin: '0 0 0.5rem 0', color: '#fbbf24' }}>
+                  What Nevada Attorneys Can Do
+                </h5>
+                <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5', fontSize: '0.95rem' }}>
+                  ✅ List properties ✅ Market real estate ✅ Negotiate transactions ✅ Earn commissions 
+                  ✅ Operate independently ✅ Handle multiple clients
+                </p>
+              </div>
+              <div>
+                <h5 style={{ fontSize: '1.1rem', fontWeight: '600', margin: '0 0 0.5rem 0', color: '#fbbf24' }}>
+                  Revenue Opportunity
+                </h5>
+                <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5', fontSize: '0.95rem' }}>
+                  Capture $50K-200K+ in annual real estate commissions you're currently referring away. 
+                  Christopher AI handles complexity while you provide legal oversight.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Texas Section */}
+          <div>
+            <h4 style={{ fontSize: '1.8rem', fontWeight: '600', margin: '0 0 1.5rem 0', color: '#cb9628' }}>
+              ⭐ Texas: Attorney-Enhanced Real Estate Services
+            </h4>
+            <div style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gap: '2rem',
+              textAlign: 'left'
+            }}>
+              <div>
+                <h5 style={{ fontSize: '1.1rem', fontWeight: '600', margin: '0 0 0.5rem 0', color: '#fbbf24' }}>
+                  Texas Admin Code § 535.31
+                </h5>
+                <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5', fontSize: '0.95rem' }}>
+                  Well-established exemption since 1976. Individual real estate activities permitted with 
+                  dual oversight by TREC and Texas State Bar.
+                </p>
+              </div>
+              <div>
+                <h5 style={{ fontSize: '1.1rem', fontWeight: '600', margin: '0 0 0.5rem 0', color: '#fbbf24' }}>
+                  What Texas Attorneys Can Do
+                </h5>
+                <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5', fontSize: '0.95rem' }}>
+                  ✅ Handle own transactions ✅ Represent clients ✅ Negotiate deals ✅ Earn fees 
+                  ✅ Draft contracts ✅ Conduct closings
+                </p>
+              </div>
+              <div>
+                <h5 style={{ fontSize: '1.1rem', fontWeight: '600', margin: '0 0 0.5rem 0', color: '#fbbf24' }}>
+                  Massive Market Scale
+                </h5>
+                <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5', fontSize: '0.95rem' }}>
+                  100,000+ attorneys in diverse real estate markets. Proven legal framework 
+                  with established compliance procedures and precedent.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '2rem',
-            textAlign: 'left'
+            textAlign: 'center', 
+            marginTop: '2rem',
+            padding: '1.5rem',
+            background: 'rgba(203, 150, 40, 0.1)',
+            borderRadius: '1rem',
+            border: '1px solid rgba(203, 150, 40, 0.3)'
           }}>
-            <div>
-              <h4 style={{ fontSize: '1.3rem', fontWeight: '600', margin: '0 0 1rem 0', color: '#cb9628' }}>
-                💰 Attorney-Broker Revenue
-              </h4>
-              <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5' }}>
-                Nevada NRS 7.107 allows attorneys to earn real estate commissions without separate broker licensing. 
-                Stop referring $50K-200K+ annual revenue to agents - capture it yourself with legal oversight.
-              </p>
-            </div>
-            <div>
-              <h4 style={{ fontSize: '1.3rem', fontWeight: '600', margin: '0 0 1rem 0', color: '#cb9628' }}>
-                🤖 AI Handles Complexity
-              </h4>
-              <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5' }}>
-                Christopher AI manages all real estate transaction complexity - inspections, title coordination, 
-                client communication - while you provide legal expertise and protection.
-              </p>
-            </div>
-            <div>
-              <h4 style={{ fontSize: '1.3rem', fontWeight: '600', margin: '0 0 1rem 0', color: '#cb9628' }}>
-                🏆 Competitive Moat
-              </h4>
-              <p style={{ margin: 0, opacity: 0.9, lineHeight: '1.5' }}>
-                Nevada's unique regulatory advantage cannot be replicated in other states. 
-                Position yourself as the attorney who provides legal protection AND real estate expertise.
-              </p>
-            </div>
+            <p style={{ 
+              margin: 0, 
+              fontSize: '1.1rem', 
+              fontWeight: '600',
+              color: '#cb9628'
+            }}>
+              Christopher AI Platform: Designed for Both State Regulatory Frameworks
+            </p>
+            <p style={{ 
+              margin: '0.5rem 0 0 0', 
+              opacity: 0.9,
+              fontSize: '0.95rem'
+            }}>
+              Automatic compliance, state-specific features, and cultural intelligence that works across Texas and Nevada markets
+            </p>
           </div>
         </section>
       </main>
@@ -573,7 +668,7 @@ export default function Home() {
         zIndex: 2
       }}>
         <p style={{ margin: 0, fontSize: '1rem' }}>
-          © 2025 CaseClosed, Inc. | Revolutionizing Legal Technology with Christopher AI | Nevada State Bar Compliant
+          © 2025 CaseClosed, Inc. | Revolutionizing Legal Technology with Christopher AI | Nevada State Bar & Texas State Bar Compliant
         </p>
       </footer>
     </div>
