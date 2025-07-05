@@ -1,41 +1,4 @@
-{
-      id: 4,
-      name: "Christopher Tech-Forward",
-      image: "/avatars/christopher-tech-forward.png", // Your real Tech-Forward avatar
-      appearance: "Asian American, early 30s, modern professional",
-      specialization: "Tech industry clients, younger demographics",
-      personality: "Efficient, detail-oriented, innovation-focused"
-    },
-    {
-      id: 5,
-      name: "Christopher Experienced",
-      image: "/avatars/christopher-experienced.png", // Your real Experienced avatar
-      appearance: "Caucasian, early 50s, distinguished professional",
-      specialization: "High-net-worth clients, luxury real estate",
-      personality: "Wisdom-focused, trustworthy"
-    },
-    {
-      id: 6,
-      name: "Christopher Approachable",
-      image: "/avatars/christopher-approachable.png", // Your real Approachable avatar
-      appearance: "Mixed/Multiracial, late 20s, energetic",
-      specialization: "First-time buyers, millennials",
-      personality: "Contemporary, peer-to-peer relatability"
-    },
-    {
-      id: 7,
-      name: "Christopher International",
-      image: "/avatars/christopher-international.png", // Your real International avatar
-      appearance: "Middle Eastern/South Asian, mid-30s",
-      specialization: "International clients, investment properties",
-      personality: "Culturally sophisticated, diplomatic"
-    },
-    {
-      id: 8,
-      name: "Christopher Community",
-      image: "/avatars/christopher-community.png", // Your real Community avatar
-      appearance: "Native American, late 30s, community-focused",
-      import { useState } from 'react'
+import { useState } from 'react'
 
 export default function Home() {
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null)
@@ -121,15 +84,15 @@ export default function Home() {
         pointerEvents: 'none',
         zIndex: 1
       }}>
-        {christopherAvatars.map((avatar, index) => (
+        {christopherAvatars.map((avatar) => (
           <div
             key={avatar.id}
             style={{
               position: 'absolute',
-              top: `${20 + (index * 10)}%`,
+              top: `${20 + (avatar.id * 10)}%`,
               left: '100%',
-              animation: `floatAcross ${30 + (index * 2)}s linear infinite`,
-              animationDelay: `${index * 3}s`,
+              animation: `floatAcross ${30 + (avatar.id * 2)}s linear infinite`,
+              animationDelay: `${avatar.id * 3}s`,
               display: 'flex',
               alignItems: 'center',
               gap: '1rem',
